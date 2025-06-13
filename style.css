@@ -1,0 +1,3152 @@
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+header {
+    background-color: #1a1a1a;
+    padding: 1rem 5%;
+    border-bottom: 1px solid #333;
+    position: relative; /* Para posicionar el menú móvil correctamente */
+    z-index: 1000; /* Para que el header esté por encima de otros elementos */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 150px; /* Reverted logo size */
+    height: 50px; /* Reverted logo size */
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 100%;
+    width: auto;
+}
+
+.desktop-nav { /* Estilos para el menú de escritorio */
+    position: relative; 
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.desktop-nav li a {
+    font-size: 1.15rem;
+}
+
+.desktop-nav::after { /* El seguidor se queda con el menú de escritorio */
+    content: '';
+    position: absolute;
+    bottom: -5px; 
+    left: var(--follower-left, 0);
+    width: var(--follower-width, 0);
+    height: 3px;
+    background-color: #007bff;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
+.mobile-menu-button {
+    display: none; /* Oculto por defecto, se mostrará en móviles */
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.mobile-menu {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Ocupa toda la pantalla o se desliza desde un lado */
+    top: 0;
+    left: -100%; /* Comienza fuera de la pantalla a la izquierda */
+    width: 80%; /* Ancho del menú lateral */
+    max-width: 300px; /* Ancho máximo */
+    height: 100vh; /* Altura completa de la pantalla */
+    background-color: #1e1e1e; /* Un poco más claro que el fondo general */
+    padding: 2rem;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+    transition: left 0.3s ease-in-out;
+    z-index: 999; /* Debajo del header pero encima del contenido */
+}
+
+.mobile-menu.is-open {
+    left: 0; /* Se desliza a la vista */
+    display: block; /* Asegúrate de que sea visible cuando está abierto */
+}
+
+.mobile-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 4rem; /* Espacio para el logo o botón de cerrar si lo añades */
+}
+
+.mobile-menu ul li a {
+    display: block;
+    padding: 1rem 0;
+    font-size: 1.3rem;
+    color: #ffffff;
+    text-decoration: none;
+    border-bottom: 1px solid #333;
+}
+
+.mobile-menu ul li:last-child a {
+    border-bottom: none;
+}
+
+.hero {
+    background-image: url('img/imagen fondo.png');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 8rem 2rem; /* Reverted to original padding */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    transform: translateY(-3rem); /* Move text up */
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    position: relative;
+    display: inline-block;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero .subtitle {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+
+/* Mission Section Styles */
+.mission-section {
+    background-color: #121212; /* Cambiado a #121212 */
+    padding: 4rem 5%;
+    /* color: #ffffff; */ /* El color general se manejará en los elementos hijos si es necesario */
+}
+
+.mission-content {
+    display: flex;
+    align-items: center; /* Centrar verticalmente si las alturas son diferentes */
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.mission-text {
+    flex: 1;
+    background-color: #1a1a1a; /* Cambiado a #1a1a1a */
+    color: #ccc; /* Texto claro para contraste con fondo oscuro de tarjeta */
+    padding: 2rem; /* Relleno interno para la tarjeta */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra para efecto tarjeta, ajustada si es necesario */
+}
+
+.mission-text h2 {
+    font-size: 2.5rem;
+    color: #007bff; /* Azul primario para el título, se mantiene */
+    margin-bottom: 1.5rem;
+}
+
+.mission-text p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #ccc; /* Texto gris claro, legible sobre #1a1a1a */
+}
+
+.mission-image {
+    flex: 1;
+    text-align: center;
+}
+
+.mission-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Restauramos la sombra de la imagen */
+}
+
+/* Responsive adjustments for mission section */
+@media (max-width: 768px) {
+    .mission-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .mission-text h2 {
+        font-size: 2rem;
+    }
+
+    .mission-text p {
+        font-size: 1rem;
+    }
+
+    .mission-image {
+        margin-top: 2rem;
+    }
+}
+
+/* Vision Section Styles */
+.vision-section {
+    background-color: #121212; /* Fondo oscuro general de la sección */
+    padding: 4rem 5%;
+}
+
+.vision-content {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-direction: row; /* Cambiado de row-reverse a row */
+}
+
+.vision-text {
+    flex: 1;
+    background-color: #1a1a1a; /* Cambiado a #1a1a1a */
+    color: #ccc; /* Texto claro para contraste con fondo oscuro de tarjeta */
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Ajustar la sombra si es necesario para el nuevo fondo */
+}
+
+.vision-text h2 {
+    font-size: 2.5rem;
+    color: #007bff; /* Azul primario para el título, se mantiene */
+    margin-bottom: 1.5rem;
+}
+
+.vision-text p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #ccc; /* Texto gris claro, legible sobre #1a1a1a */
+}
+
+.vision-image {
+    flex: 1;
+    text-align: center;
+}
+
+.vision-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments for vision section */
+@media (max-width: 768px) {
+    .vision-content {
+        flex-direction: column; /* Apila en móvil */
+        text-align: center;
+    }
+
+    .vision-content .vision-text {
+        order: 1; /* Hace que el texto aparezca primero */
+    }
+
+    .vision-content .vision-image {
+        order: 2; /* Hace que la imagen aparezca después del texto */
+        margin-bottom: 0; /* Quitamos el margen inferior si el texto va primero */
+        margin-top: 2rem; /* Añadimos un margen superior para separar de texto */
+    }
+
+    .vision-text h2 {
+        font-size: 2rem;
+    }
+
+    .vision-text p {
+        font-size: 1rem;
+    }
+
+    /* No es necesario .vision-image { margin-bottom: 2rem; } si la imagen va después */
+}
+
+.why-choose-us {
+    background-color: #121212;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.why-choose-us h2 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.why-choose-us .section-subtitle {
+    font-size: 1.1rem;
+    color: #ccc;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.feature-item {
+    background-color: #1e1e1e;
+    padding: 2.5rem 2rem;
+    border-radius: 10px;
+    border: 1px solid #333;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+}
+
+.feature-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.15);
+}
+
+.feature-item i {
+    font-size: 3rem;
+    color: #007bff;
+    margin-bottom: 1.5rem;
+}
+
+.feature-item h3 {
+    font-size: 1.4rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.feature-item p {
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.6;
+}
+
+.investigators {
+    padding: 4rem 5%;
+    text-align: center;
+}
+
+.investigators h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.investigators-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+}
+
+.investigator-item {
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    border: 1px solid #333;
+    padding: 1.5rem;
+    text-align: left;
+}
+
+.investigator-item img {
+    width: 100%;
+    height: 300px; /* Fixed height for consistency */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    object-position: top; /* Added this line to focus on the top of the image */
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.investigator-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #007bff;
+}
+
+.investigator-item p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.contact-form {
+    padding: 4rem 5%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-form h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form label {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    border-radius: 5px;
+    padding: 1rem;
+    color: #ffffff;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #888;
+}
+
+.contact-form textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.btn-submit {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3;
+}
+
+.suggestions-form {
+    padding: 4rem 2rem;
+    background-color: #121212; /* Changed from #1a1a1a */
+    text-align: center;
+}
+
+.suggestions-form h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.suggestions-form .section-subtitle {
+    font-size: 1.1rem;
+    color: #ccc;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+}
+
+.suggestions-form form {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #ccc;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background-color: #2a2a2a;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.submit-btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    font-size: 1.1rem;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+footer {
+    background-color: #1a1a1a;
+    color: #ccc;
+    padding: 3rem 5%;
+    border-top: 1px solid #333;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-contact {
+    display: flex;
+    justify-content: space-around; /* Changed for better distribution */
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #333;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start; /* Changed for top alignment */
+    gap: 1rem;
+    max-width: 350px; /* Added to prevent items from being too wide */
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: #007bff;
+}
+
+.contact-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* --- Media Queries for Responsive Design --- */
+/* --- Floating WhatsApp Button --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    background-color: #128C7E;
+}
+
+/* Media Query para dispositivos móviles */
+@media (max-width: 768px) { /* Ajusta este valor según tus necesidades */
+    .desktop-nav {
+        display: none; /* Oculta el menú de escritorio en móviles */
+    }
+
+    .mobile-menu-button {
+        display: block; /* Muestra el botón de hamburguesa en móviles */
+    }
+
+    /* Si quieres que el menú móvil se muestre como un bloque cuando está activo */
+    /* .mobile-menu.is-open {
+        display: block; 
+    } */
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        right: 20px;
+        bottom: 20px;
+    }
+
+    nav {
+        /* flex-direction: column; Ya no es necesario si solo está el logo y el botón */
+        /* gap: 1rem; */
+    }
+
+    /* nav ul { Ya no aplica directamente al nav ul general en móviles
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        width: 100%;
+    } */
+
+    .hero h1 {
+        font-size: 2.8rem; /* Adjusted for mobile */
+    }
+
+    .hero .subtitle {
+        font-size: 1.3rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .features-grid,
+    .investigators-grid {
+        grid-template-columns: 1fr; /* Stack items in a single column */
+    }
+
+    .footer-contact {
+        flex-direction: column;
+        align-items: center; /* Center items when stacked */
+        text-align: center;
+    }
+
+    .contact-item {
+        justify-content: center;
+        text-align: left;
+    }
+
+    .contact-form {
+        padding: 2rem 5%;
+    }
+}
+
+/* Estilos para la animación de fade-in */
+.fade-in-element {
+    opacity: 0;
+    transform: translateY(20px); /* Puedes ajustar este valor para cambiar la dirección/distancia del movimiento */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-element.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start; /* Changed for top alignment */
+    gap: 1rem;
+    max-width: 350px; /* Added to prevent items from being too wide */
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: #007bff;
+}
+
+.contact-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* --- Media Queries for Responsive Design --- */
+/* --- Floating WhatsApp Button --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    background-color: #128C7E;
+}
+
+/* Media Query para dispositivos móviles */
+@media (max-width: 768px) { /* Ajusta este valor según tus necesidades */
+    .desktop-nav {
+        display: none; /* Oculta el menú de escritorio en móviles */
+    }
+
+    .mobile-menu-button {
+        display: block; /* Muestra el botón de hamburguesa en móviles */
+    }
+
+    /* Si quieres que el menú móvil se muestre como un bloque cuando está activo */
+    /* .mobile-menu.is-open {
+        display: block; 
+    } */
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        right: 20px;
+        bottom: 20px;
+    }
+
+    nav {
+        /* flex-direction: column; Ya no es necesario si solo está el logo y el botón */
+        /* gap: 1rem; */
+    }
+
+    /* nav ul { Ya no aplica directamente al nav ul general en móviles
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        width: 100%;
+    } */
+
+    .hero h1 {
+        font-size: 2.8rem; /* Adjusted for mobile */
+    }
+
+    .hero .subtitle {
+        font-size: 1.3rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .features-grid,
+    .investigators-grid {
+        grid-template-columns: 1fr; /* Stack items in a single column */
+    }
+
+    .footer-contact {
+        flex-direction: column;
+        align-items: center; /* Center items when stacked */
+        text-align: center;
+    }
+
+    .contact-item {
+        justify-content: center;
+        text-align: left;
+    }
+
+    .contact-form {
+        padding: 2rem 5%;
+    }
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start; /* Changed for top alignment */
+    gap: 1rem;
+    max-width: 350px; /* Added to prevent items from being too wide */
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: #007bff;
+}
+
+.contact-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* --- Media Queries for Responsive Design --- */
+/* --- Floating WhatsApp Button --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    background-color: #128C7E;
+}
+
+/* Media Query para dispositivos móviles */
+@media (max-width: 768px) { /* Ajusta este valor según tus necesidades */
+    .desktop-nav {
+        display: none; /* Oculta el menú de escritorio en móviles */
+    }
+
+    .mobile-menu-button {
+        display: block; /* Muestra el botón de hamburguesa en móviles */
+    }
+
+    /* Si quieres que el menú móvil se muestre como un bloque cuando está activo */
+    /* .mobile-menu.is-open {
+        display: block; 
+    } */
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        right: 20px;
+        bottom: 20px;
+    }
+
+    nav {
+        /* flex-direction: column; Ya no es necesario si solo está el logo y el botón */
+        /* gap: 1rem; */
+    }
+
+    /* nav ul { Ya no aplica directamente al nav ul general en móviles
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        width: 100%;
+    } */
+
+    .hero h1 {
+        font-size: 2.8rem; /* Adjusted for mobile */
+    }
+
+    .hero .subtitle {
+        font-size: 1.3rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .features-grid,
+    .investigators-grid {
+        grid-template-columns: 1fr; /* Stack items in a single column */
+    }
+
+    .footer-contact {
+        flex-direction: column;
+        align-items: center; /* Center items when stacked */
+        text-align: center;
+    }
+
+    .contact-item {
+        justify-content: center;
+        text-align: left;
+    }
+
+    .contact-form {
+        padding: 2rem 5%;
+    }
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start; /* Changed for top alignment */
+    gap: 1rem;
+    max-width: 350px; /* Added to prevent items from being too wide */
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: #007bff;
+}
+
+.contact-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* --- Media Queries for Responsive Design --- */
+/* --- Floating WhatsApp Button --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    background-color: #128C7E;
+}
+
+/* Media Query para dispositivos móviles */
+@media (max-width: 768px) { /* Ajusta este valor según tus necesidades */
+    .desktop-nav {
+        display: none; /* Oculta el menú de escritorio en móviles */
+    }
+
+    .mobile-menu-button {
+        display: block; /* Muestra el botón de hamburguesa en móviles */
+    }
+
+    /* Si quieres que el menú móvil se muestre como un bloque cuando está activo */
+    /* .mobile-menu.is-open {
+        display: block; 
+    } */
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        right: 20px;
+        bottom: 20px;
+    }
+
+    nav {
+        /* flex-direction: column; Ya no es necesario si solo está el logo y el botón */
+        /* gap: 1rem; */
+    }
+
+    /* nav ul { Ya no aplica directamente al nav ul general en móviles
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        width: 100%;
+    } */
+
+    .hero h1 {
+        font-size: 2.8rem; /* Adjusted for mobile */
+    }
+
+    .hero .subtitle {
+        font-size: 1.3rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .features-grid,
+    .investigators-grid {
+        grid-template-columns: 1fr; /* Stack items in a single column */
+    }
+
+    .footer-contact {
+        flex-direction: column;
+        align-items: center; /* Center items when stacked */
+        text-align: center;
+    }
+
+    .contact-item {
+        justify-content: center;
+        text-align: left;
+    }
+
+    .contact-form {
+        padding: 2rem 5%;
+    }
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start; /* Changed for top alignment */
+    gap: 1rem;
+    max-width: 350px; /* Added to prevent items from being too wide */
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: #007bff;
+}
+
+.contact-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* --- Media Queries for Responsive Design --- */
+/* --- Floating WhatsApp Button --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    background-color: #128C7E;
+}
+
+/* Media Query para dispositivos móviles */
+@media (max-width: 768px) { /* Ajusta este valor según tus necesidades */
+    .desktop-nav {
+        display: none; /* Oculta el menú de escritorio en móviles */
+    }
+
+    .mobile-menu-button {
+        display: block; /* Muestra el botón de hamburguesa en móviles */
+    }
+
+    /* Si quieres que el menú móvil se muestre como un bloque cuando está activo */
+    /* .mobile-menu.is-open {
+        display: block; 
+    } */
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        right: 20px;
+        bottom: 20px;
+    }
+
+    nav {
+        /* flex-direction: column; Ya no es necesario si solo está el logo y el botón */
+        /* gap: 1rem; */
+    }
+
+    /* nav ul { Ya no aplica directamente al nav ul general en móviles
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        width: 100%;
+    } */
+
+    .hero h1 {
+        font-size: 2.8rem; /* Adjusted for mobile */
+    }
+
+    .hero .subtitle {
+        font-size: 1.3rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .features-grid,
+    .investigators-grid {
+        grid-template-columns: 1fr; /* Stack items in a single column */
+    }
+
+    .footer-contact {
+        flex-direction: column;
+        align-items: center; /* Center items when stacked */
+        text-align: center;
+    }
+
+    .contact-item {
+        justify-content: center;
+        text-align: left;
+    }
+
+    .contact-form {
+        padding: 2rem 5%;
+    }
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start; /* Changed for top alignment */
+    gap: 1rem;
+    max-width: 350px; /* Added to prevent items from being too wide */
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: #007bff;
+}
+
+.contact-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* --- Media Queries for Responsive Design --- */
+/* --- Floating WhatsApp Button --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    background-color: #128C7E;
+}
+
+/* Media Query para dispositivos móviles */
+@media (max-width: 768px) { /* Ajusta este valor según tus necesidades */
+    .desktop-nav {
+        display: none; /* Oculta el menú de escritorio en móviles */
+    }
+
+    .mobile-menu-button {
+        display: block; /* Muestra el botón de hamburguesa en móviles */
+    }
+
+    /* Si quieres que el menú móvil se muestre como un bloque cuando está activo */
+    /* .mobile-menu.is-open {
+        display: block; 
+    } */
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        right: 20px;
+        bottom: 20px;
+    }
+
+    nav {
+        /* flex-direction: column; Ya no es necesario si solo está el logo y el botón */
+        /* gap: 1rem; */
+    }
+
+    /* nav ul { Ya no aplica directamente al nav ul general en móviles
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        width: 100%;
+    } */
+
+    .hero h1 {
+        font-size: 2.8rem; /* Adjusted for mobile */
+    }
+
+    .hero .subtitle {
+        font-size: 1.3rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .features-grid,
+    .investigators-grid {
+        grid-template-columns: 1fr; /* Stack items in a single column */
+    }
+
+    .footer-contact {
+        flex-direction: column;
+        align-items: center; /* Center items when stacked */
+        text-align: center;
+    }
+
+    .contact-item {
+        justify-content: center;
+        text-align: left;
+    }
+
+    .contact-form {
+        padding: 2rem 5%;
+    }
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start; /* Changed for top alignment */
+    gap: 1rem;
+    max-width: 350px; /* Added to prevent items from being too wide */
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: #007bff;
+}
+
+.contact-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* --- Media Queries for Responsive Design --- */
+/* --- Floating WhatsApp Button --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    background-color: #128C7E;
+}
+
+/* Media Query para dispositivos móviles */
+@media (max-width: 768px) { /* Ajusta este valor según tus necesidades */
+    .desktop-nav {
+        display: none; /* Oculta el menú de escritorio en móviles */
+    }
+
+    .mobile-menu-button {
+        display: block; /* Muestra el botón de hamburguesa en móviles */
+    }
+
+    /* Si quieres que el menú móvil se muestre como un bloque cuando está activo */
+    /* .mobile-menu.is-open {
+        display: block; 
+    } */
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        right: 20px;
+        bottom: 20px;
+    }
+
+    nav {
+        /* flex-direction: column; Ya no es necesario si solo está el logo y el botón */
+        /* gap: 1rem; */
+    }
+
+    /* nav ul { Ya no aplica directamente al nav ul general en móviles
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        width: 100%;
+    } */
+
+    .hero h1 {
+        font-size: 2.8rem; /* Adjusted for mobile */
+    }
+
+    .hero .subtitle {
+        font-size: 1.3rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .features-grid,
+    .investigators-grid {
+        grid-template-columns: 1fr; /* Stack items in a single column */
+    }
+
+    .footer-contact {
+        flex-direction: column;
+        align-items: center; /* Center items when stacked */
+        text-align: center;
+    }
+
+    .contact-item {
+        justify-content: center;
+        text-align: left;
+    }
+
+    .contact-form {
+        padding: 2rem 5%;
+    }
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start; /* Changed for top alignment */
+    gap: 1rem;
+    max-width: 350px; /* Added to prevent items from being too wide */
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: #007bff;
+}
+
+.contact-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* --- Media Queries for Responsive Design --- */
+/* --- Floating WhatsApp Button --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    background-color: #128C7E;
+}
+
+/* Media Query para dispositivos móviles */
+@media (max-width: 768px) { /* Ajusta este valor según tus necesidades */
+    .desktop-nav {
+        display: none; /* Oculta el menú de escritorio en móviles */
+    }
+
+    .mobile-menu-button {
+        display: block; /* Muestra el botón de hamburguesa en móviles */
+    }
+
+    /* Si quieres que el menú móvil se muestre como un bloque cuando está activo */
+    /* .mobile-menu.is-open {
+        display: block; 
+    } */
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        right: 20px;
+        bottom: 20px;
+    }
+
+    nav {
+        /* flex-direction: column; Ya no es necesario si solo está el logo y el botón */
+        /* gap: 1rem; */
+    }
+
+    /* nav ul { Ya no aplica directamente al nav ul general en móviles
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        width: 100%;
+    } */
+
+    .hero h1 {
+        font-size: 2.8rem; /* Adjusted for mobile */
+    }
+
+    .hero .subtitle {
+        font-size: 1.3rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .features-grid,
+    .investigators-grid {
+        grid-template-columns: 1fr; /* Stack items in a single column */
+    }
+
+    .footer-contact {
+        flex-direction: column;
+        align-items: center; /* Center items when stacked */
+        text-align: center;
+    }
+
+    .contact-item {
+        justify-content: center;
+        text-align: left;
+    }
+
+    .contact-form {
+        padding: 2rem 5%;
+    }
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start; /* Changed for top alignment */
+    gap: 1rem;
+    max-width: 350px; /* Added to prevent items from being too wide */
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: #007bff;
+}
+
+.contact-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* --- Media Queries for Responsive Design --- */
+/* --- Floating WhatsApp Button --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    background-color: #128C7E;
+}
+
+/* Media Query para dispositivos móviles */
+@media (max-width: 768px) { /* Ajusta este valor según tus necesidades */
+    .desktop-nav {
+        display: none; /* Oculta el menú de escritorio en móviles */
+    }
+
+    .mobile-menu-button {
+        display: block; /* Muestra el botón de hamburguesa en móviles */
+    }
+
+    /* Si quieres que el menú móvil se muestre como un bloque cuando está activo */
+    /* .mobile-menu.is-open {
+        display: block; 
+    } */
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        right: 20px;
+        bottom: 20px;
+    }
+
+    nav {
+        /* flex-direction: column; Ya no es necesario si solo está el logo y el botón */
+        /* gap: 1rem; */
+    }
+
+    /* nav ul { Ya no aplica directamente al nav ul general en móviles
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        width: 100%;
+    } */
+
+    .hero h1 {
+        font-size: 2.8rem; /* Adjusted for mobile */
+    }
+
+    .hero .subtitle {
+        font-size: 1.3rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .features-grid,
+    .investigators-grid {
+        grid-template-columns: 1fr; /* Stack items in a single column */
+    }
+
+    .footer-contact {
+        flex-direction: column;
+        align-items: center; /* Center items when stacked */
+        text-align: center;
+    }
+
+    .contact-item {
+        justify-content: center;
+        text-align: left;
+    }
+
+    .contact-form {
+        padding: 2rem 5%;
+    }
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start; /* Changed for top alignment */
+    gap: 1rem;
+    max-width: 350px; /* Added to prevent items from being too wide */
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: #007bff;
+}
+
+.contact-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* --- Media Queries for Responsive Design --- */
+/* --- Floating WhatsApp Button --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    background-color: #128C7E;
+}
+
+/* Media Query para dispositivos móviles */
+@media (max-width: 768px) { /* Ajusta este valor según tus necesidades */
+    .desktop-nav {
+        display: none; /* Oculta el menú de escritorio en móviles */
+    }
+
+    .mobile-menu-button {
+        display: block; /* Muestra el botón de hamburguesa en móviles */
+    }
+
+    /* Si quieres que el menú móvil se muestre como un bloque cuando está activo */
+    /* .mobile-menu.is-open {
+        display: block; 
+    } */
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        right: 20px;
+        bottom: 20px;
+    }
+
+    nav {
+        /* flex-direction: column; Ya no es necesario si solo está el logo y el botón */
+        /* gap: 1rem; */
+    }
+
+    /* nav ul { Ya no aplica directamente al nav ul general en móviles
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        width: 100%;
+    } */
+
+    .hero h1 {
+        font-size: 2.8rem; /* Adjusted for mobile */
+    }
+
+    .hero .subtitle {
+        font-size: 1.3rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .features-grid,
+    .investigators-grid {
+        grid-template-columns: 1fr; /* Stack items in a single column */
+    }
+
+    .footer-contact {
+        flex-direction: column;
+        align-items: center; /* Center items when stacked */
+        text-align: center;
+    }
+
+    .contact-item {
+        justify-content: center;
+        text-align: left;
+    }
+
+    .contact-form {
+        padding: 2rem 5%;
+    }
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start; /* Changed for top alignment */
+    gap: 1rem;
+    max-width: 350px; /* Added to prevent items from being too wide */
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: #007bff;
+}
+
+.contact-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* --- Media Queries for Responsive Design --- */
+/* --- Floating WhatsApp Button --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    background-color: #128C7E;
+}
+
+/* Media Query para dispositivos móviles */
+@media (max-width: 768px) { /* Ajusta este valor según tus necesidades */
+    .desktop-nav {
+        display: none; /* Oculta el menú de escritorio en móviles */
+    }
+
+    .mobile-menu-button {
+        display: block; /* Muestra el botón de hamburguesa en móviles */
+    }
+
+    /* Si quieres que el menú móvil se muestre como un bloque cuando está activo */
+    /* .mobile-menu.is-open {
+        display: block; 
+    } */
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        right: 20px;
+        bottom: 20px;
+    }
+
+    nav {
+        /* flex-direction: column; Ya no es necesario si solo está el logo y el botón */
+        /* gap: 1rem; */
+    }
+
+    /* nav ul { Ya no aplica directamente al nav ul general en móviles
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        width: 100%;
+    } */
+
+    .hero h1 {
+        font-size: 2.8rem; /* Adjusted for mobile */
+    }
+
+    .hero .subtitle {
+        font-size: 1.3rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .features-grid,
+    .investigators-grid {
+        grid-template-columns: 1fr; /* Stack items in a single column */
+    }
+
+    .footer-contact {
+        flex-direction: column;
+        align-items: center; /* Center items when stacked */
+        text-align: center;
+    }
+
+    .contact-item {
+        justify-content: center;
+        text-align: left;
+    }
+
+    .contact-form {
+        padding: 2rem 5%;
+    }
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start; /* Changed for top alignment */
+    gap: 1rem;
+    max-width: 350px; /* Added to prevent items from being too wide */
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: #007bff;
+}
+
+.contact-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* --- Media Queries for Responsive Design --- */
+/* --- Floating WhatsApp Button --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    background-color: #128C7E;
+}
+
+/* Media Query para dispositivos móviles */
+@media (max-width: 768px) { /* Ajusta este valor según tus necesidades */
+    .desktop-nav {
+        display: none; /* Oculta el menú de escritorio en móviles */
+    }
+
+    .mobile-menu-button {
+        display: block; /* Muestra el botón de hamburguesa en móviles */
+    }
+
+    /* Si quieres que el menú móvil se muestre como un bloque cuando está activo */
+    /* .mobile-menu.is-open {
+        display: block; 
+    } */
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        right: 20px;
+        bottom: 20px;
+    }
+
+    nav {
+        /* flex-direction: column; Ya no es necesario si solo está el logo y el botón */
+        /* gap: 1rem; */
+    }
+
+    /* nav ul { Ya no aplica directamente al nav ul general en móviles
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        width: 100%;
+    } */
+
+    .hero h1 {
+        font-size: 2.8rem; /* Adjusted for mobile */
+    }
+
+    .hero .subtitle {
+        font-size: 1.3rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .features-grid,
+    .investigators-grid {
+        grid-template-columns: 1fr; /* Stack items in a single column */
+    }
+
+    .footer-contact {
+        flex-direction: column;
+        align-items: center; /* Center items when stacked */
+        text-align: center;
+    }
+
+    .contact-item {
+        justify-content: center;
+        text-align: left;
+    }
+
+    .contact-form {
+        padding: 2rem 5%;
+    }
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start; /* Changed for top alignment */
+    gap: 1rem;
+    max-width: 350px; /* Added to prevent items from being too wide */
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: #007bff;
+}
+
+.contact-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* --- Media Queries for Responsive Design --- */
+/* --- Floating WhatsApp Button --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    background-color: #128C7E;
+}
+
+/* Media Query para dispositivos móviles */
+@media (max-width: 768px) { /* Ajusta este valor según tus necesidades */
+    .desktop-nav {
+        display: none; /* Oculta el menú de escritorio en móviles */
+    }
+
+    .mobile-menu-button {
+        display: block; /* Muestra el botón de hamburguesa en móviles */
+    }
+
+    /* Si quieres que el menú móvil se muestre como un bloque cuando está activo */
+    /* .mobile-menu.is-open {
+        display: block; 
+    } */
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        right: 20px;
+        bottom: 20px;
+    }
+
+    nav {
+        /* flex-direction: column; Ya no es necesario si solo está el logo y el botón */
+        /* gap: 1rem; */
+    }
+
+    /* nav ul { Ya no aplica directamente al nav ul general en móviles
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        width: 100%;
+    } */
+
+    .hero h1 {
+        font-size: 2.8rem; /* Adjusted for mobile */
+    }
+
+    .hero .subtitle {
+        font-size: 1.3rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .features-grid,
+    .investigators-grid {
+        grid-template-columns: 1fr; /* Stack items in a single column */
+    }
+
+    .footer-contact {
+        flex-direction: column;
+        align-items: center; /* Center items when stacked */
+        text-align: center;
+    }
+
+    .contact-item {
+        justify-content: center;
+        text-align: left;
+    }
+
+    .contact-form {
+        padding: 2rem 5%;
+    }
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start; /* Changed for top alignment */
+    gap: 1rem;
+    max-width: 350px; /* Added to prevent items from being too wide */
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: #007bff;
+}
+
+.contact-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* --- Media Queries for Responsive Design --- */
+/* --- Floating WhatsApp Button --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    background-color: #128C7E;
+}
+
+/* Media Query para dispositivos móviles */
+@media (max-width: 768px) { /* Ajusta este valor según tus necesidades */
+    .desktop-nav {
+        display: none; /* Oculta el menú de escritorio en móviles */
+    }
+
+    .mobile-menu-button {
+        display: block; /* Muestra el botón de hamburguesa en móviles */
+    }
+
+    /* Si quieres que el menú móvil se muestre como un bloque cuando está activo */
+    /* .mobile-menu.is-open {
+        display: block; 
+    } */
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        right: 20px;
+        bottom: 20px;
+    }
+
+    nav {
+        /* flex-direction: column; Ya no es necesario si solo está el logo y el botón */
+        /* gap: 1rem; */
+    }
+
+    /* nav ul { Ya no aplica directamente al nav ul general en móviles
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        width: 100%;
+    } */
+
+    .hero h1 {
+        font-size: 2.8rem; /* Adjusted for mobile */
+    }
+
+    .hero .subtitle {
+        font-size: 1.3rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .features-grid,
+    .investigators-grid {
+        grid-template-columns: 1fr; /* Stack items in a single column */
+    }
+
+    .footer-contact {
+        flex-direction: column;
+        align-items: center; /* Center items when stacked */
+        text-align: center;
+    }
+
+    .contact-item {
+        justify-content: center;
+        text-align: left;
+    }
+
+    .contact-form {
+        padding: 2rem 5%;
+    }
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start; /* Changed for top alignment */
+    gap: 1rem;
+    max-width: 350px; /* Added to prevent items from being too wide */
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: #007bff;
+}
+
+.contact-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* --- Media Queries for Responsive Design --- */
+/* --- Floating WhatsApp Button --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    background-color: #128C7E;
+}
+
+/* Media Query para dispositivos móviles */
+@media (max-width: 768px) { /* Ajusta este valor según tus necesidades */
+    .desktop-nav {
+        display: none; /* Oculta el menú de escritorio en móviles */
+    }
+
+    .mobile-menu-button {
+        display: block; /* Muestra el botón de hamburguesa en móviles */
+    }
+
+    /* Si quieres que el menú móvil se muestre como un bloque cuando está activo */
+    /* .mobile-menu.is-open {
+        display: block; 
+    } */
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        right: 20px;
+        bottom: 20px;
+    }
+
+    nav {
+        /* flex-direction: column; Ya no es necesario si solo está el logo y el botón */
+        /* gap: 1rem; */
+    }
+
+    /* nav ul { Ya no aplica directamente al nav ul general en móviles
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        width: 100%;
+    } */
+
+    .hero h1 {
+        font-size: 2.8rem; /* Adjusted for mobile */
+    }
+
+    .hero .subtitle {
+        font-size: 1.3rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .features-grid,
+    .investigators-grid {
+        grid-template-columns: 1fr; /* Stack items in a single column */
+    }
+
+    .footer-contact {
+        flex-direction: column;
+        align-items: center; /* Center items when stacked */
+        text-align: center;
+    }
+
+    .contact-item {
+        justify-content: center;
+        text-align: left;
+    }
+
+    .contact-form {
+        padding: 2rem 5%;
+    }
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start; /* Changed for top alignment */
+    gap: 1rem;
+    max-width: 350px; /* Added to prevent items from being too wide */
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: #007bff;
+}
+
+.contact-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* --- Media Queries for Responsive Design --- */
+/* --- Floating WhatsApp Button --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    background-color: #128C7E;
+}
+
+/* Media Query para dispositivos móviles */
+@media (max-width: 768px) { /* Ajusta este valor según tus necesidades */
+    .desktop-nav {
+        display: none; /* Oculta el menú de escritorio en móviles */
+    }
+
+    .mobile-menu-button {
+        display: block; /* Muestra el botón de hamburguesa en móviles */
+    }
+
+    /* Si quieres que el menú móvil se muestre como un bloque cuando está activo */
+    /* .mobile-menu.is-open {
+        display: block; 
+    } */
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        right: 20px;
+        bottom: 20px;
+    }
+
+    nav {
+        /* flex-direction: column; Ya no es necesario si solo está el logo y el botón */
+        /* gap: 1rem; */
+    }
+
+    /* nav ul { Ya no aplica directamente al nav ul general en móviles
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        width: 100%;
+    } */
+
+    .hero h1 {
+        font-size: 2.8rem; /* Adjusted for mobile */
+    }
+
+    .hero .subtitle {
+        font-size: 1.3rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .features-grid,
+    .investigators-grid {
+        grid-template-columns: 1fr; /* Stack items in a single column */
+    }
+
+    .footer-contact {
+        flex-direction: column;
+        align-items: center; /* Center items when stacked */
+        text-align: center;
+    }
+
+    .contact-item {
+        justify-content: center;
+        text-align: left;
+    }
+
+    .contact-form {
+        padding: 2rem 5%;
+    }
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start; /* Changed for top alignment */
+    gap: 1rem;
+    max-width: 350px; /* Added to prevent items from being too wide */
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: #007bff;
+}
+
+.contact-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* --- Media Queries for Responsive Design --- */
+/* --- Floating WhatsApp Button --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    background-color: #128C7E;
+}
+
+/* Media Query para dispositivos móviles */
+@media (max-width: 768px) { /* Ajusta este valor según tus necesidades */
+    .desktop-nav {
+        display: none; /* Oculta el menú de escritorio en móviles */
+    }
+
+    .mobile-menu-button {
+        display: block; /* Muestra el botón de hamburguesa en móviles */
+    }
+
+    /* Si quieres que el menú móvil se muestre como un bloque cuando está activo */
+    /* .mobile-menu.is-open {
+        display: block; 
+    } */
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        right: 20px;
+        bottom: 20px;
+    }
+
+    nav {
+        /* flex-direction: column; Ya no es necesario si solo está el logo y el botón */
+        /* gap: 1rem; */
+    }
+
+    /* nav ul { Ya no aplica directamente al nav ul general en móviles
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        width: 100%;
+    } */
+
+    .hero h1 {
+        font-size: 2.8rem; /* Adjusted for mobile */
+    }
+
+    .hero .subtitle {
+        font-size: 1.3rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .features-grid,
+    .investigators-grid {
+        grid-template-columns: 1fr; /* Stack items in a single column */
+    }
+
+    .footer-contact {
+        flex-direction: column;
+        align-items: center; /* Center items when stacked */
+        text-align: center;
+    }
+
+    .contact-item {
+        justify-content: center;
+        text-align: left;
+    }
+
+    .contact-form {
+        padding: 2rem 5%;
+    }
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start; /* Changed for top alignment */
+    gap: 1rem;
+    max-width: 350px; /* Added to prevent items from being too wide */
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: #007bff;
+}
+
+.contact-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* --- Media Queries for Responsive Design --- */
+/* --- Floating WhatsApp Button --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    background-color: #128C7E;
+}
+
+/* Media Query para dispositivos móviles */
+@media (max-width: 768px) { /* Ajusta este valor según tus necesidades */
+    .desktop-nav {
+        display: none; /* Oculta el menú de escritorio en móviles */
+    }
+
+    .mobile-menu-button {
+        display: block; /* Muestra el botón de hamburguesa en móviles */
+    }
+
+    /* Si quieres que el menú móvil se muestre como un bloque cuando está activo */
+    /* .mobile-menu.is-open {
+        display: block; 
+    } */
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        right: 20px;
+        bottom: 20px;
+    }
+
+    nav {
+        /* flex-direction: column; Ya no es necesario si solo está el logo y el botón */
+        /* gap: 1rem; */
+    }
+
+    /* nav ul { Ya no aplica directamente al nav ul general en móviles
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        width: 100%;
+    } */
+
+    .hero h1 {
+        font-size: 2.8rem; /* Adjusted for mobile */
+    }
+
+    .hero .subtitle {
+        font-size: 1.3rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .features-grid,
+    .investigators-grid {
+        grid-template-columns: 1fr; /* Stack items in a single column */
+    }
+
+    .footer-contact {
+        flex-direction: column;
+        align-items: center; /* Center items when stacked */
+        text-align: center;
+    }
+
+    .contact-item {
+        justify-content: center;
+        text-align: left;
+    }
+
+    .contact-form {
+        padding: 2rem 5%;
+    }
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start; /* Changed for top alignment */
+    gap: 1rem;
+    max-width: 350px; /* Added to prevent items from being too wide */
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: #007bff;
+}
+
+.contact-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* --- Media Queries for Responsive Design --- */
+/* --- Floating WhatsApp Button --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    background-color: #128C7E;
+}
+
+/* Media Query para dispositivos móviles */
+@media (max-width: 768px) { /* Ajusta este valor según tus necesidades */
+    .desktop-nav {
+        display: none; /* Oculta el menú de escritorio en móviles */
+    }
+
+    .mobile-menu-button {
+        display: block; /* Muestra el botón de hamburguesa en móviles */
+    }
+
+    /* Si quieres que el menú móvil se muestre como un bloque cuando está activo */
+    /* .mobile-menu.is-open {
+        display: block; 
+    } */
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        right: 20px;
+        bottom: 20px;
+    }
+
+    nav {
+        /* flex-direction: column; Ya no es necesario si solo está el logo y el botón */
+        /* gap: 1rem; */
+    }
+
+    /* nav ul { Ya no aplica directamente al nav ul general en móviles
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        width: 100%;
+    } */
+
+    .hero h1 {
+        font-size: 2.8rem; /* Adjusted for mobile */
+    }
+
+    .hero .subtitle {
+        font-size: 1.3rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .features-grid,
+    .investigators-grid {
+        grid-template-columns: 1fr; /* Stack items in a single column */
+    }
+
+    .footer-contact {
+        flex-direction: column;
+        align-items: center; /* Center items when stacked */
+        text-align: center;
+    }
+
+    .contact-item {
+        justify-content: center;
+        text-align: left;
+    }
+
+    .contact-form {
+        padding: 2rem 5%;
+    }
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start; /* Changed for top alignment */
+    gap: 1rem;
+    max-width: 350px; /* Added to prevent items from being too wide */
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: #007bff;
+}
+
+.contact-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* --- Media Queries for Responsive Design --- */
+/* --- Floating WhatsApp Button --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    background-color: #128C7E;
+}
+
+/* Media Query para dispositivos móviles */
+@media (max-width: 768px) { /* Ajusta este valor según tus necesidades */
+    .desktop-nav {
+        display: none; /* Oculta el menú de escritorio en móviles */
+    }
+
+    .mobile-menu-button {
+        display: block; /* Muestra el botón de hamburguesa en móviles */
+    }
+
+    /* Si quieres que el menú móvil se muestre como un bloque cuando está activo */
+    /* .mobile-menu.is-open {
+        display: block; 
+    } */
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        right: 20px;
+        bottom: 20px;
+    }
+
+    nav {
+        /* flex-direction: column; Ya no es necesario si solo está el logo y el botón */
+        /* gap: 1rem; */
+    }
+
+    /* nav ul { Ya no aplica directamente al nav ul general en móviles
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        width: 100%;
+    } */
+
+    .hero h1 {
+        font-size: 2.8rem; /* Adjusted for mobile */
+    }
+
+    .hero .subtitle {
+        font-size: 1.3rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .features-grid,
+    .investigators-grid {
+        grid-template-columns: 1fr; /* Stack items in a single column */
+    }
+
+    .footer-contact {
+        flex-direction: column;
+        align-items: center; /* Center items when stacked */
+        text-align: center;
+    }
+
+    .contact-item {
+        justify-content: center;
+        text-align: left;
+    }
+
+    .contact-form {
+        padding: 2rem 5%;
+    }
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start; /* Changed for top alignment */
+    gap: 1rem;
+    max-width: 350px; /* Added to prevent items from being too wide */
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: #007bff;
+}
+
+.contact-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* --- Media Queries for Responsive Design --- */
+/* --- Floating WhatsApp Button --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    background-color: #128C7E;
+}
+
+/* Media Query para dispositivos móviles */
+@media (max-width: 768px) { /* Ajusta este valor según tus necesidades */
+    .desktop-nav {
+        display: none; /* Oculta el menú de escritorio en móviles */
+    }
+
+    .mobile-menu-button {
+        display: block; /* Muestra el botón de hamburguesa en móviles */
+    }
+
+    /* Si quieres que el menú móvil se muestre como un bloque cuando está activo */
+    /* .mobile-menu.is-open {
+        display: block; 
+    } */
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        right: 20px;
+        bottom: 20px;
+    }
+
+    nav {
+        /* flex-direction: column; Ya no es necesario si solo está el logo y el botón */
+        /* gap: 1rem; */
+    }
+
+    /* nav ul { Ya no aplica directamente al nav ul general en móviles
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        width: 100%;
+    } */
+
+    .hero h1 {
+        font-size: 2.8rem; /* Adjusted for mobile */
+    }
+
+    .hero .subtitle {
+        font-size: 1.3rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .features-grid,
+    .investigators-grid {
+        grid-template-columns: 1fr; /* Stack items in a single column */
+    }
+
+    .footer-contact {
+        flex-direction: column;
+        align-items: center; /* Center items when stacked */
+        text-align: center;
+    }
+
+    .contact-item {
+        justify-content: center;
+        text-align: left;
+    }
+
+    .contact-form {
+        padding: 2rem 5%;
+    }
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start; /* Changed for top alignment */
+    gap: 1rem;
+    max-width: 350px; /* Added to prevent items from being too wide */
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: #007bff;
+}
+
+.contact-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* --- Media Queries for Responsive Design --- */
+/* --- Floating WhatsApp Button --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    background-color: #128C7E;
+}
+
+/* Media Query para dispositivos móviles */
+@media (max-width: 768px) { /* Ajusta este valor según tus necesidades */
+    .desktop-nav {
+        display: none; /* Oculta el menú de escritorio en móviles */
+    }
+
+    .mobile-menu-button {
+        display: block; /* Muestra el botón de hamburguesa en móviles */
+    }
+
+    /* Si quieres que el menú móvil se muestre como un bloque cuando está activo */
+    /* .mobile-menu.is-open {
+        display: block; 
+    } */
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        right: 20px;
+        bottom: 20px;
+    }
+
+    nav {
+        /* flex-direction: column; Ya no es necesario si solo está el logo y el botón */
+        /* gap: 1rem; */
+    }
+
+    /* nav ul { Ya no aplica directamente al nav ul general en móviles
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        width: 100%;
+    } */
+
+    .hero h1 {
+        font-size: 2.8rem; /* Adjusted for mobile */
+    }
+
+    .hero .subtitle {
+        font-size: 1.3rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .features-grid,
+    .investigators-grid {
+        grid-template-columns: 1fr; /* Stack items in a single column */
+    }
+
+    .footer-contact {
+        flex-direction: column;
+        align-items: center; /* Center items when stacked */
+        text-align: center;
+    }
+
+    .contact-item {
+        justify-content: center;
+        text-align: left;
+    }
+
+    .contact-form {
+        padding: 2rem 5%;
+    }
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start; /* Changed for top alignment */
+    gap: 1rem;
+    max-width: 350px; /* Added to prevent items from being too wide */
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: #007bff;
+}
+
+.contact-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* --- Media Queries for Responsive Design --- */
+/* --- Floating WhatsApp Button --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    background-color: #128C7E;
+}
+
+.whatsapp-hero {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #25d366;
+    color: #FFF;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.whatsapp-hero:hover {
+    background-color: #128C7E;
+}
+
+.whatsapp-hero i {
+    font-size: 1.3rem;
+}
+
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 50px
+    }
+}
