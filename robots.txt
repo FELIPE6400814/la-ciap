@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Favicon
+Allow: /favicon.ico
+Allow: /site.webmanifest
+
+# Images
+Allow: /img/
+
+# Sitemap
+Sitemap: https://laciap.com/sitemap.xml
