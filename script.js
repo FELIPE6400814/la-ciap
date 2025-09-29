@@ -2,6 +2,56 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuButton = document.querySelector('.mobile-menu-button');
     const mobileMenu = document.getElementById('mobileMenu');
     const body = document.body;
+    
+    // Funcionalidad para el aviso de cookies
+    const cookieNotice = document.getElementById('cookie-notice');
+    const acceptCookiesBtn = document.getElementById('accept-cookies');
+    const privacyPolicyLink = document.getElementById('privacy-policy-link');
+    const privacyPolicyModal = document.getElementById('privacy-policy-modal');
+    const closeModal = document.querySelector('.close-modal');
+    
+    // Comprobar si ya se aceptaron las cookies
+    const cookiesAccepted = localStorage.getItem('cookiesAccepted');
+    
+    if (!cookiesAccepted) {
+        // Mostrar el aviso de cookies después de un breve retraso
+        setTimeout(() => {
+            cookieNotice.classList.add('show');
+        }, 1000);
+    }
+    
+    // Manejar el clic en el botón de aceptar cookies
+    if (acceptCookiesBtn) {
+        acceptCookiesBtn.addEventListener('click', () => {
+            localStorage.setItem('cookiesAccepted', 'true');
+            cookieNotice.classList.remove('show');
+        });
+    }
+    
+    // Manejar el clic en el enlace de política de privacidad
+    if (privacyPolicyLink) {
+        privacyPolicyLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            privacyPolicyModal.style.display = 'block';
+            body.style.overflow = 'hidden'; // Evitar scroll en el fondo
+        });
+    }
+    
+    // Cerrar el modal de política de privacidad
+    if (closeModal) {
+        closeModal.addEventListener('click', () => {
+            privacyPolicyModal.style.display = 'none';
+            body.style.overflow = ''; // Restaurar scroll
+        });
+    }
+    
+    // Cerrar el modal al hacer clic fuera de él
+    window.addEventListener('click', (e) => {
+        if (e.target === privacyPolicyModal) {
+            privacyPolicyModal.style.display = 'none';
+            body.style.overflow = ''; // Restaurar scroll
+        }
+    });
 
     if (mobileMenuButton && mobileMenu) {
         mobileMenuButton.addEventListener('click', () => {
